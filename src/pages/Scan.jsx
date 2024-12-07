@@ -1,19 +1,12 @@
 import { Scanner } from "@yudiel/react-qr-scanner";
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Scan = () => {
-  // const [loading, setLoading] = useState(false);
-  // const [mode, setMode] = useState("default");
-  const [ticketId, setTicketId] = useState(null);
+  const navigate = useNavigate();
 
   const onScan = (result) => {
-    setTicketId(result.rawValue);
-    console.log(ticketId);
+    navigate(`/tickets/${result[0].rawValue}`);
   };
-
-  // if (loading) {
-  //   return <Spinner />;
-  // }
 
   return (
     <div className="pageContainer">
@@ -24,10 +17,6 @@ const Scan = () => {
       <main>
         <div className="scanner">
           <Scanner onScan={(result) => onScan(result)} />
-        </div>
-
-        <div className="ticketInfo">
-          <p>{ticketId}</p>
         </div>
       </main>
     </div>
