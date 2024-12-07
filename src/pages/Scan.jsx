@@ -25,6 +25,10 @@ const Scan = () => {
         <div className="scanner">
           <Scanner onScan={(result) => onScan(result)} />
         </div>
+
+        <div className="ticketInfo">
+          <p>{ticketId}</p>
+        </div>
       </main>
     </div>
   );
